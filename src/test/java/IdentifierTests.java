@@ -13,11 +13,8 @@ public class IdentifierTests {
     @Test
     void testCaseValidIdentifiers() {
         ArrayList<String> dataTests = new ArrayList<String>();
-        dataTests.add("string");
-        dataTests.add("test10");
-        dataTests.add("t1e2s3");
-        dataTests.add("test");
-        dataTests.add("l");
+        dataTests.add("a");
+        dataTests.add("a123bc");
 
         dataTests.forEach((data) -> {
             assertTrue(id.validateIdentifier(data), "Identificador válido esperado: " + data);
@@ -27,13 +24,10 @@ public class IdentifierTests {
     @Test
     void testCaseInvalidIdentifiers() {
         ArrayList<String> dataTests = new ArrayList<String>();
-        dataTests.add("stringmuitogrande");
         dataTests.add("");
-        dataTests.add("1test");
-        dataTests.add("###");
-        dataTests.add("#test");
-        dataTests.add("test t");
-        dataTests.add("123456");
+        dataTests.add("a123bcd");
+        dataTests.add("a*1bc");
+        dataTests.add("1");
 
         dataTests.forEach((data) -> {
             assertFalse(id.validateIdentifier(data), "Identificador inválido esperado: " + data);
